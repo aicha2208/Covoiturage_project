@@ -1,0 +1,44 @@
+﻿@model GESTIONCOVOITURES.Models.Reservation
+
+@{
+    ViewData["Title"] = "Modifier";
+}
+
+<h1>Modifier</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TrajetId" class="control-label"></label>
+                <select asp-for="TrajetId" class="form-control" asp-items="ViewBag.TrajetId"></select>
+                <span asp-validation-for="TrajetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassagerId" class="control-label"></label>
+                <select asp-for="PassagerId" class="form-control" asp-items="ViewBag.PassagerId"></select>
+                <span asp-validation-for="PassagerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateReservation" class="control-label"></label>
+                <input asp-for="DateReservation" class="form-control" />
+                <span asp-validation-for="DateReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la Liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
